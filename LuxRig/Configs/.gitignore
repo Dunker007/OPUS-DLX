@@ -1,0 +1,10 @@
+# Ignore actual API keys file
+api-keys.json
+
+# Ignore any backup files
+*.backup
+*.bak
+
+# Ignore local overrides
+local-*.json
+local-*.yaml

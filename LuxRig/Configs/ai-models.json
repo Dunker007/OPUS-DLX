@@ -1,0 +1,98 @@
+{
+  "claude": {
+    "model": "claude-opus-4-1",
+    "tier": 1,
+    "monthly_budget": 100,
+    "cost_per_1k_tokens": 0.015,
+    "optimal_tasks": [
+      "strategic_planning",
+      "creative_ideation",
+      "ethical_review",
+      "quality_control",
+      "business_strategy",
+      "complex_analysis"
+    ],
+    "endpoint": "https://api.anthropic.com/v1/messages",
+    "rate_limits": {
+      "requests_per_minute": 50,
+      "tokens_per_minute": 100000
+    }
+  },
+  "gpt4": {
+    "model": "gpt-4-turbo",
+    "tier": 1,
+    "monthly_budget": 100,
+    "cost_per_1k_tokens_input": 0.01,
+    "cost_per_1k_tokens_output": 0.03,
+    "optimal_tasks": [
+      "code_generation",
+      "technical_documentation",
+      "api_integration",
+      "debugging",
+      "data_analysis",
+      "architecture_design"
+    ],
+    "endpoint": "https://api.openai.com/v1/chat/completions",
+    "rate_limits": {
+      "requests_per_minute": 60,
+      "tokens_per_minute": 150000
+    }
+  },
+  "gemini": {
+    "model": "gemini-pro",
+    "tier": 2,
+    "monthly_budget": 50,
+    "cost_per_1k_tokens_input": 0.00125,
+    "cost_per_1k_tokens_output": 0.00375,
+    "optimal_tasks": [
+      "research",
+      "summarization",
+      "content_generation",
+      "data_extraction",
+      "translation",
+      "classification"
+    ],
+    "endpoint": "https://generativelanguage.googleapis.com/v1/models",
+    "rate_limits": {
+      "requests_per_minute": 60,
+      "tokens_per_minute": 120000
+    }
+  },
+  "grok": {
+    "model": "grok-1",
+    "tier": 1,
+    "monthly_budget": 100,
+    "cost_per_1k_tokens": 0.02,
+    "optimal_tasks": [
+      "real_time_data",
+      "trend_analysis",
+      "social_media_monitoring",
+      "creative_writing",
+      "market_research"
+    ],
+    "endpoint": "https://api.x.ai/v1/chat/completions",
+    "rate_limits": {
+      "requests_per_minute": 50,
+      "tokens_per_minute": 100000
+    },
+    "notes": "Ready for integration when X.AI API access is available"
+  },
+  "local": {
+    "model": "llama2",
+    "tier": 3,
+    "monthly_budget": 0,
+    "cost_per_1k_tokens": 0,
+    "optimal_tasks": [
+      "bulk_processing",
+      "data_filtering",
+      "simple_categorization",
+      "monitoring",
+      "basic_qa",
+      "text_cleaning"
+    ],
+    "ollama_endpoint": "http://localhost:11434/api/generate",
+    "lmstudio_endpoint": "http://localhost:1234/v1/chat/completions",
+    "preferred_runtime": "ollama",
+    "notes": "Free local processing - no API costs!"
+  }
+}

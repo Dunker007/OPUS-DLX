@@ -1,0 +1,150 @@
+# LuxRig Budget Rules Configuration
+# Defines spending limits and allocation strategy
+
+# Global Settings
+global:
+  total_monthly_budget: 350  # Total across all AI models
+  currency: USD
+  reset_day: 1  # Day of month to reset budgets (1-28)
+
+  # Alert thresholds
+  alerts:
+    warning_threshold: 0.80   # Warn at 80% of budget
+    critical_threshold: 0.95  # Critical alert at 95%
+    block_threshold: 1.0      # Block new requests at 100%
+
+# Budget Allocation Modes
+# Switch between these based on revenue and growth stage
+
+modes:
+  # Bootstrapper Mode - Minimal spend, maximize local models
+  bootstrapper:
+    total_budget: 50
+    allocation:
+      claude: 0
+      gpt4: 0
+      gemini: 25
+      grok: 0
+      local: 0  # Always free
+    strategy: "Use local models for 90% of work, Gemini for critical tasks"
+
+  # Growth Mode - Balanced premium and local
+  growth:
+    total_budget: 200
+    allocation:
+      claude: 75
+      gpt4: 75
+      gemini: 50
+      grok: 0
+      local: 0
+    strategy: "Premium for strategy/quality, mid-tier for execution, local for bulk"
+
+  # Blitzkrieg Mode - Maximum firepower
+  blitzkrieg:
+    total_budget: 500
+    allocation:
+      claude: 150
+      gpt4: 150
+      gemini: 100
+      grok: 100
+      local: 0
+    strategy: "All premium AIs competing/collaborating, rapid scaling"
+
+# Active Mode (change this to switch allocation)
+active_mode: growth
+
+# Per-Model Limits (overrides mode settings if specified)
+model_limits:
+  claude:
+    daily_max: 10      # Max $10/day
+    weekly_max: 40     # Max $40/week
+    monthly_max: 100   # Max $100/month
+
+  gpt4:
+    daily_max: 10
+    weekly_max: 40
+    monthly_max: 100
+
+  gemini:
+    daily_max: 5
+    weekly_max: 20
+    monthly_max: 50
+
+  grok:
+    daily_max: 10
+    weekly_max: 40
+    monthly_max: 100
+
+  local:
+    daily_max: 0    # Free!
+    weekly_max: 0
+    monthly_max: 0
+
+# Fallback Strategy
+# When a model hits budget limit, route to these alternatives
+fallbacks:
+  claude:
+    - gemini
+    - local
+
+  gpt4:
+    - gemini
+    - local
+
+  gemini:
+    - local
+
+  grok:
+    - claude
+    - gemini
+    - local
+
+# Cost Optimization Rules
+optimization:
+  # Auto-switch to cheaper models for simple tasks
+  auto_downgrade: true
+
+  # Cache responses to avoid duplicate API calls
+  enable_caching: true
+  cache_duration_hours: 24
+
+  # Batch similar requests together
+  enable_batching: true
+  batch_wait_seconds: 5
+
+  # Use local models during off-peak hours
+  off_peak_local_only: false
+  off_peak_hours:
+    start: 22  # 10 PM
+    end: 6     # 6 AM
+
+# Revenue-Based Auto-Scaling
+# Automatically increase budgets as revenue grows
+auto_scaling:
+  enabled: true
+
+  # When monthly revenue hits these thresholds, switch modes
+  thresholds:
+    - revenue: 0
+      mode: bootstrapper
+    - revenue: 500
+      mode: growth
+    - revenue: 2000
+      mode: blitzkrieg
+
+  # Percentage of revenue to reinvest in AI
+  reinvestment_rate: 0.15  # 15% of revenue goes to AI budget
+
+# Monitoring & Reporting
+reporting:
+  # Generate daily budget reports
+  daily_report: true
+
+  # Send alerts when thresholds hit
+  alerts_enabled: true
+
+  # Track ROI per model
+  track_roi: true
+
+  # Log all spend to analytics
+  detailed_logging: true

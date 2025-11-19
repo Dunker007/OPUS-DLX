@@ -1,0 +1,146 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2024-11-19",
+
+  "content": {
+    "min_originality_score": 0.85,
+    "require_ftc_disclosure": true,
+    "max_plagiarism_matches": 3,
+    "min_readability_score": 60,
+    "max_spam_score": 0.3,
+
+    "readability": {
+      "target_flesch_score": 70,
+      "max_words_per_sentence": 25,
+      "max_syllables_per_word": 2.5
+    },
+
+    "seo": {
+      "min_word_count": 800,
+      "max_keyword_density": 0.03,
+      "require_meta_description": true,
+      "require_headings": true
+    },
+
+    "compliance": {
+      "require_privacy_policy_link": true,
+      "require_terms_of_service": false,
+      "block_medical_claims": true,
+      "block_financial_advice": true,
+      "require_affiliate_disclosure": true
+    }
+  },
+
+  "code": {
+    "require_security_scan": true,
+    "max_complexity_score": 15,
+    "require_error_handling": true,
+    "block_dangerous_functions": true,
+
+    "security": {
+      "block_eval": true,
+      "block_exec": true,
+      "block_hardcoded_credentials": true,
+      "require_input_validation": true,
+      "require_output_encoding": true
+    },
+
+    "style": {
+      "require_comments": true,
+      "max_function_length": 50,
+      "max_nesting_depth": 4,
+      "require_type_hints": false
+    },
+
+    "dangerous_patterns": {
+      "powershell": [
+        "Invoke-Expression",
+        "iex ",
+        "-ExecutionPolicy Bypass",
+        "-NoProfile",
+        "DownloadString",
+        "DownloadFile"
+      ],
+      "javascript": [
+        "eval(",
+        "Function(",
+        "innerHTML =",
+        "document.write("
+      ],
+      "python": [
+        "eval(",
+        "exec(",
+        "__import__('os').system"
+      ],
+      "general": [
+        "password = \"",
+        "api_key = \"",
+        "secret = \""
+      ]
+    }
+  },
+
+  "factcheck": {
+    "require_sources": true,
+    "min_confidence": 0.75,
+    "use_multi_ai_verification": true,
+    "max_claims_without_source": 3,
+
+    "verification_strategy": {
+      "controversial_topics": "require_3_sources",
+      "technical_facts": "require_2_sources",
+      "opinions": "require_1_source",
+      "common_knowledge": "no_source_required"
+    }
+  },
+
+  "performance": {
+    "max_response_time_ms": 5000,
+    "max_file_size_mb": 10,
+    "max_image_size_mb": 2,
+
+    "optimization": {
+      "compress_images": true,
+      "minify_code": true,
+      "remove_unused_dependencies": true
+    }
+  },
+
+  "multi_ai_review": {
+    "enabled": true,
+    "require_consensus": true,
+    "min_reviewers": 2,
+
+    "review_strategy": {
+      "tier_1_content": ["claude", "gpt4"],
+      "tier_2_content": ["gemini", "local"],
+      "code_review": ["gpt4", "claude"],
+      "creative_review": ["claude", "grok"]
+    }
+  },
+
+  "pass_criteria": {
+    "content": {
+      "min_overall_score": 70,
+      "max_critical_issues": 0,
+      "max_warnings": 5
+    },
+    "code": {
+      "min_overall_score": 80,
+      "max_critical_issues": 0,
+      "max_warnings": 3
+    }
+  },
+
+  "automated_fixes": {
+    "enabled": true,
+
+    "fix_types": {
+      "add_ftc_disclosure": true,
+      "fix_spelling": true,
+      "optimize_images": true,
+      "format_code": true,
+      "add_error_handling": false
+    }
+  }
+}

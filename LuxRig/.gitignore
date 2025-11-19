@@ -1,0 +1,41 @@
+# API Keys and Secrets - NEVER COMMIT THESE
+Configs/api-keys.json
+Configs/local-*.json
+*.key
+*.secret
+
+# Runtime Data
+Analytics/budget-state.json
+Analytics/**/*.jsonl
+Analytics/**/*.log
+
+# Generated Content
+Content/raw/**
+Content/processed/**
+Content/published/**
+
+# Generated Products
+Products/ideas/**
+Products/development/**
+Products/deployed/**
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*~
+
+# OS Files
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# PowerShell Session Files
+*.ps1~
+*.psm1~
+
+# Logs
+*.log
+logs/

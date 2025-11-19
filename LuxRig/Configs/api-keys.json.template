@@ -1,0 +1,35 @@
+{
+  "_comment": "API Keys Configuration Template",
+  "_instructions": "Copy this file to api-keys.json and add your actual API keys. The api-keys.json file is gitignored for security.",
+
+  "anthropic_api_key": "sk-ant-api03-...",
+  "openai_api_key": "sk-...",
+  "google_ai_api_key": "AIza...",
+  "xai_api_key": "xai-...",
+
+  "reddit": {
+    "client_id": "...",
+    "client_secret": "...",
+    "user_agent": "LuxRig/1.0"
+  },
+
+  "github": {
+    "personal_access_token": "ghp_..."
+  },
+
+  "stripe": {
+    "secret_key": "sk_test_...",
+    "publishable_key": "pk_test_..."
+  },
+
+  "email": {
+    "resend_api_key": "re_...",
+    "from_email": "noreply@yourdomain.com"
+  },
+
+  "deployment": {
+    "vercel_token": "...",
+    "netlify_token": "...",
+    "cloudflare_api_key": "..."
+  }
+}
