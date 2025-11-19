@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  luxrig:
+    build: .
+    container_name: luxrig-main
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./Data:/app/Data
+      - ./Logs:/app/Logs
+      - ./Configs:/app/Configs
+    environment:
+      - LUXRIG_ENV=production
+      - TZ=UTC
+    networks:
+      - luxrig-network
+    healthcheck:
+      test: ["CMD", "pwsh", "-Command", "Test-Path /app/Data/luxrig.db"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+
+  dashboard:
+    build: .
+    container_name: luxrig-dashboard
+    restart: unless-stopped
+    command: ["pwsh", "-File", "/app/Dashboard/web-server.ps1"]
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./Data:/app/Data:ro
+    depends_on:
+      - luxrig
+    networks:
+      - luxrig-network
+
+networks:
+  luxrig-network:
+    driver: bridge
+
+volumes:
+  luxrig-data:
+  luxrig-logs:

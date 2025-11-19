@@ -1,17 +1,25 @@
 #Requires -Version 7.0
 <#
 .SYNOPSIS
-    LuxRig Health Monitor
+    LuxRig Health Monitor - Production Ready
 .DESCRIPTION
-    Continuous system health monitoring:
+    Continuous system health monitoring with auto-restart:
     - Exchange connectivity
     - Strategy performance
-    - Risk limit monitoring
+    - Database health
+    - Service monitoring
+    - Auto-restart failed services
     - Alert system
 #>
 
+param([int]$CheckInterval = 300, [switch]$AutoRestart)
+
 $script:HealthLog = @()
 $script:Alerts = @()
+$script:Services = @()
+
+$dataAccessModule = Join-Path $PSScriptRoot 'Database/data-access.ps1'
+if (Test-Path $dataAccessModule) { . $dataAccessModule }
 
 function Start-HealthMonitor {
     param([int]$IntervalSeconds = 60)
