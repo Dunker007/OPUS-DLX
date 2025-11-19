@@ -94,46 +94,63 @@ MEGA-EMPIRE/
 
 ### Prerequisites
 
-- Python 3.8+
-- 4GB RAM minimum (8GB recommended)
-- 20GB disk space
-- Linux/Mac (Windows WSL supported)
+- **Python 3.8+** (3.11+ recommended)
+- **RAM**: 4GB minimum (8GB+ recommended)
+- **Disk**: 20GB free space (SSD recommended)
+- **OS**: Windows 10/11, Linux, or macOS
 
-### Installation
+### 🪟 Windows Installation (One-Click)
+
+**Easiest Method**:
+1. Download/extract MEGA-EMPIRE to `C:\MEGA-EMPIRE`
+2. Double-click `QUICKSTART.bat`
+3. Follow the installation wizard
+4. System will auto-start when ready!
+
+**Manual Installation**:
+```cmd
+cd C:\MEGA-EMPIRE
+install.bat
+```
+
+### 🐧 Linux/macOS Installation
 
 ```bash
-# Clone the repository
 cd MEGA-EMPIRE
-
-# Install dependencies (if any)
-# pip install -r requirements.txt
-
-# Verify installation
+pip install -r requirements.txt
 python launcher.py --status
 ```
 
 ### Launch Options
 
-```bash
-# Start entire system (Master Control + all modules)
-python launcher.py
+**🪟 Windows (Recommended)**:
+```cmd
+launcher.bat                      # Start everything
+launcher.bat --master             # Master Control only
+launcher.bat --category ContentFactory
+launcher.bat --status             # Check status
+launcher.bat --stop               # Stop all
 
-# Start Master Control Center only
-python launcher.py --master
-
-# Start specific category
-python launcher.py --category ContentFactory
-python launcher.py --category RevenueEngines
-
-# Start specific module
-python launcher.py --module 1
-
-# Check system status
-python launcher.py --status
-
-# Stop all modules
-python launcher.py --stop
+# Or use PowerShell:
+.\launcher.ps1
+.\launcher.ps1 -Master
+.\launcher.ps1 -Status
 ```
+
+**🐧 Linux/macOS / 🪟 Windows Advanced**:
+```bash
+python launcher.py                      # Start everything
+python launcher.py --master             # Master Control only
+python launcher.py --category ContentFactory
+python launcher.py --module 1           # Start specific module
+python launcher.py --status             # Check status
+python launcher.py --stop               # Stop all
+```
+
+### 📚 Platform-Specific Guides
+
+- **Windows Users**: See [WINDOWS_GUIDE.md](WINDOWS_GUIDE.md) for detailed setup, troubleshooting, and optimization
+- **All Platforms**: Continue reading below for general usage
 
 ---
 

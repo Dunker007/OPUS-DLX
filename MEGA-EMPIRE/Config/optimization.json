@@ -1,0 +1,48 @@
+{
+  "performance": {
+    "enable_caching": true,
+    "cache_ttl": 3600,
+    "max_cache_size_mb": 512,
+    "enable_multiprocessing": true,
+    "process_pool_size": 4,
+    "thread_pool_size": 10,
+    "enable_async": true,
+    "async_workers": 20
+  },
+  "database": {
+    "connection_pool_size": 5,
+    "max_overflow": 10,
+    "pool_recycle": 3600,
+    "pool_pre_ping": true,
+    "enable_query_cache": true,
+    "cache_size": 1000
+  },
+  "network": {
+    "timeout": 30,
+    "max_retries": 3,
+    "retry_delay": 2,
+    "connection_pool_size": 10,
+    "keep_alive": true,
+    "enable_http2": true
+  },
+  "memory": {
+    "max_memory_mb": 2048,
+    "enable_gc_optimization": true,
+    "gc_threshold": [700, 10, 10],
+    "large_object_threshold_mb": 100
+  },
+  "logging": {
+    "level": "INFO",
+    "max_file_size_mb": 50,
+    "backup_count": 5,
+    "enable_compression": true,
+    "async_logging": true
+  },
+  "windows_specific": {
+    "use_windows_process_groups": true,
+    "enable_job_objects": true,
+    "priority_class": "NORMAL",
+    "affinity_mask": null,
+    "use_iocp": true
+  }
+}

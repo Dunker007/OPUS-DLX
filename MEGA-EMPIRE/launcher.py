@@ -19,9 +19,14 @@ import time
 import signal
 import subprocess
 import argparse
+import platform
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Optional
+
+# Platform detection
+IS_WINDOWS = platform.system() == "Windows"
+IS_POSIX = platform.system() in ("Linux", "Darwin")
 
 # ==============================================================================
 # CONFIGURATION
@@ -100,13 +105,29 @@ class ModuleLauncher:
 
         try:
             process = self.processes[module_id]
-            process.terminate()
 
-            # Wait for graceful shutdown
-            try:
-                process.wait(timeout=5)
-            except subprocess.TimeoutExpired:
-                process.kill()
+            # Windows-specific process termination
+            if IS_WINDOWS:
+                # Send Ctrl+C equivalent on Windows
+                try:
+                    process.send_signal(signal.CTRL_C_EVENT)
+                except:
+                    pass
+
+                # Wait for graceful shutdown
+                try:
+                    process.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    # Force kill if graceful shutdown failed
+                    subprocess.run(['taskkill', '/F', '/T', '/PID', str(process.pid)],
+                                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+            else:
+                # POSIX termination
+                process.terminate()
+                try:
+                    process.wait(timeout=5)
+                except subprocess.TimeoutExpired:
+                    process.kill()
 
             del self.processes[module_id]
             print(f"✓ Stopped Module {module_id}")
@@ -303,7 +324,7 @@ def main():
     print("="*80)
     print("\nPress Ctrl+C to stop all modules\n")
 
-    # Setup signal handler
+    # Setup signal handler (cross-platform)
     def signal_handler(sig, frame):
         print("\n\n🛑 Shutting down MEGA-EMPIRE System...")
         print("="*80)
@@ -314,15 +335,30 @@ def main():
 
         # Stop Master Control
         if master_process:
-            master_process.terminate()
+            if IS_WINDOWS:
+                try:
+                    subprocess.run(['taskkill', '/F', '/T', '/PID', str(master_process.pid)],
+                                 stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                except:
+                    pass
+            else:
+                master_process.terminate()
             print("✓ Stopped Master Control Center")
 
         print("="*80)
         print("✓ Shutdown complete")
         sys.exit(0)
 
+    # Register signal handlers
     signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTERM, signal_handler)
+
+    # SIGTERM not available on Windows
+    if hasattr(signal, 'SIGTERM'):
+        signal.signal(signal.SIGTERM, signal_handler)
+
+    # Windows-specific signal for Ctrl+Break
+    if IS_WINDOWS and hasattr(signal, 'SIGBREAK'):
+        signal.signal(signal.SIGBREAK, signal_handler)
 
     # Wait for Master Control to finish
     if master_process:
