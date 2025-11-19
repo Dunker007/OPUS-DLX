@@ -1,0 +1,38 @@
+{
+  "ai": {
+    "local_models": {
+      "enabled": true
+    },
+    "cloud_models": {
+      "enabled": false
+    }
+  },
+  "dashboard": {
+    "auto_open": true,
+    "port": 8080
+  },
+  "content": {
+    "enabled": true,
+    "platforms": {
+      "wordpress": {
+        "enabled": false
+      },
+      "medium": {
+        "enabled": false
+      }
+    }
+  },
+  "mode": "demo",
+  "trading": {
+    "exchanges": {
+      "binance": {
+        "enabled": false
+      },
+      "coinbase": {
+        "enabled": false
+      }
+    },
+    "enabled": false,
+    "paper_mode": true
+  }
+}

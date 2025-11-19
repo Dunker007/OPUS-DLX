@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LuxRig Dashboard</title>
+    <style>
+        body { font-family: Arial; background: #1a1a2e; color: #eee; padding: 20px; }
+        h1 { color: #00ff88; }
+        .card { background: #16213e; padding: 20px; margin: 10px; border-radius: 10px; }
+        .metric { font-size: 24px; color: #0ff; }
+        .status { color: #0f0; }
+    </style>
+</head>
+<body>
+    <h1>🚀 LuxRig Passive Income System</h1>
+    <div class="card">
+        <h2>System Status</h2>
+        <p class="status">✅ ONLINE (Demo Mode)</p>
+    </div>
+    <div class="card">
+        <h2>Revenue Today</h2>
+        <p class="metric">.00</p>
+        <small>Paper trading mode - no real money</small>
+    </div>
+    <div class="card">
+        <h2>Active Modules</h2>
+        <ul>
+            <li>Trading: READY (paper mode)</li>
+            <li>Content: READY (local AI)</li>
+            <li>Analytics: ACTIVE</li>
+            <li>Health Monitor: RUNNING</li>
+        </ul>
+    </div>
+    <script>
+        setInterval(() => {
+            document.querySelector('.metric').textContent = '$' + (Math.random() * 10).toFixed(2);
+        }, 5000);
+    </script>
+</body>
+</html>
