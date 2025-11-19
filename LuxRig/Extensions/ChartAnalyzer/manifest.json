@@ -1,0 +1,34 @@
+{
+  "manifest_version": 3,
+  "name": "LuxRig Chart Analyzer",
+  "version": "1.0.0",
+  "description": "AI-powered chart pattern recognition and technical analysis for any trading chart",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.tradingview.com/*",
+        "https://pro.coinbase.com/*",
+        "https://www.binance.com/*"
+      ],
+      "js": ["analyzer.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

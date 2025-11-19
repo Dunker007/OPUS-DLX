@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>LuxRig QuickTrader</title>
+  <style>
+    body {
+      width: 350px;
+      padding: 15px;
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #000;
+      color: #fff;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .portfolio-value {
+      font-size: 28px;
+      color: #0f0;
+      font-weight: bold;
+    }
+
+    .change {
+      font-size: 14px;
+      color: #0f0;
+    }
+
+    .holdings {
+      margin: 15px 0;
+    }
+
+    .holding-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px;
+      background: #111;
+      margin-bottom: 5px;
+      border-radius: 5px;
+    }
+
+    .symbol {
+      font-weight: bold;
+      width: 60px;
+    }
+
+    .positive {
+      color: #0f0;
+    }
+
+    .negative {
+      color: #f00;
+    }
+
+    .quick-trade {
+      margin-top: 15px;
+      padding: 15px;
+      background: #111;
+      border-radius: 8px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background: #222;
+      border: 1px solid #444;
+      color: #fff;
+      border-radius: 5px;
+    }
+
+    .trade-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .buy-button {
+      background: #0f0;
+      color: #000;
+    }
+
+    .sell-button {
+      background: #f00;
+      color: #fff;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h2>💎 LuxRig QuickTrader</h2>
+    <div class="portfolio-value">$40,000</div>
+    <div class="change">+$2,000 (+5.2%)</div>
+  </div>
+
+  <div class="holdings">
+    <div class="holding-row">
+      <span class="symbol">BTC</span>
+      <span>0.5</span>
+      <span>$25,000</span>
+      <span class="positive">+5.2%</span>
+    </div>
+    <div class="holding-row">
+      <span class="symbol">ETH</span>
+      <span>5.0</span>
+      <span>$10,000</span>
+      <span class="positive">+3.8%</span>
+    </div>
+    <div class="holding-row">
+      <span class="symbol">SOL</span>
+      <span>100</span>
+      <span>$5,000</span>
+      <span class="negative">-2.1%</span>
+    </div>
+  </div>
+
+  <div class="quick-trade">
+    <h3 style="margin-top: 0;">Quick Trade</h3>
+
+    <select id="symbol">
+      <option value="BTC-USD">BTC-USD</option>
+      <option value="ETH-USD">ETH-USD</option>
+      <option value="SOL-USD">SOL-USD</option>
+    </select>
+
+    <input type="number" id="amount" placeholder="Amount" />
+
+    <div class="trade-buttons">
+      <button class="buy-button" id="buyBtn">BUY</button>
+      <button class="sell-button" id="sellBtn">SELL</button>
+    </div>
+
+    <p id="status" style="margin-top: 10px; color: #0ff;"></p>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
