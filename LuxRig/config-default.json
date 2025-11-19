@@ -1,0 +1,311 @@
+{
+  "version": "4.0",
+  "environment": "development",
+  "mode": "demo",
+
+  "system": {
+    "name": "LuxRig",
+    "description": "Autonomous Wealth Generation Platform",
+    "dataPath": "./Data",
+    "logsPath": "./Logs",
+    "backupPath": "./Backups",
+    "logLevel": "INFO",
+    "debugMode": false
+  },
+
+  "database": {
+    "type": "json",
+    "usersDb": "./Data/users.json",
+    "sessionsDb": "./Data/sessions.json",
+    "permissionsDb": "./Data/permissions.json",
+    "tradesDb": "./Data/trades.json",
+    "analyticsDb": "./Data/analytics.json",
+    "autoBackup": true,
+    "backupInterval": 3600
+  },
+
+  "security": {
+    "jwtSecret": "CHANGE_THIS_IN_PRODUCTION",
+    "sessionTimeout": 3600,
+    "maxLoginAttempts": 5,
+    "lockoutDuration": 900,
+    "passwordMinLength": 12,
+    "requireStrongPassword": true,
+    "require2FA": false,
+    "allowedOrigins": ["*"]
+  },
+
+  "exchanges": {
+    "binance": {
+      "enabled": false,
+      "apiKey": "",
+      "apiSecret": "",
+      "testnet": true,
+      "rateLimit": 1200
+    },
+    "coinbase": {
+      "enabled": false,
+      "apiKey": "",
+      "apiSecret": "",
+      "sandbox": true,
+      "rateLimit": 10
+    },
+    "kraken": {
+      "enabled": false,
+      "apiKey": "",
+      "apiSecret": "",
+      "rateLimit": 15
+    },
+    "bybit": {
+      "enabled": false,
+      "apiKey": "",
+      "apiSecret": "",
+      "testnet": true,
+      "rateLimit": 50
+    },
+    "okx": {
+      "enabled": false,
+      "apiKey": "",
+      "apiSecret": "",
+      "passphrase": "",
+      "demo": true,
+      "rateLimit": 20
+    }
+  },
+
+  "aiProviders": {
+    "claude": {
+      "enabled": false,
+      "apiKey": "",
+      "model": "claude-sonnet-4-5",
+      "maxTokens": 4000,
+      "temperature": 0.7
+    },
+    "openai": {
+      "enabled": false,
+      "apiKey": "",
+      "model": "gpt-4-turbo",
+      "maxTokens": 4000,
+      "temperature": 0.7
+    },
+    "gemini": {
+      "enabled": false,
+      "apiKey": "",
+      "model": "gemini-pro",
+      "maxTokens": 4000,
+      "temperature": 0.7
+    },
+    "grok": {
+      "enabled": false,
+      "apiKey": "",
+      "model": "grok-1",
+      "maxTokens": 4000,
+      "temperature": 0.7
+    },
+    "local": {
+      "enabled": true,
+      "endpoint": "http://localhost:11434",
+      "model": "llama2",
+      "timeout": 30000
+    }
+  },
+
+  "budgetMode": "bootstrapper",
+  "budgetLimits": {
+    "bootstrapper": {
+      "monthlyLimit": 50,
+      "aiCostPerRequest": 0,
+      "maxRequests": 10000
+    },
+    "growth": {
+      "monthlyLimit": 200,
+      "aiCostPerRequest": 0.01,
+      "maxRequests": 50000
+    },
+    "blitzkrieg": {
+      "monthlyLimit": 500,
+      "aiCostPerRequest": 0.05,
+      "maxRequests": 100000
+    }
+  },
+
+  "trading": {
+    "enabled": false,
+    "mode": "demo",
+    "defaultExchange": "binance",
+    "baseCurrency": "USDT",
+    "tradingPairs": ["BTC/USDT", "ETH/USDT", "SOL/USDT"],
+
+    "risk": {
+      "maxPositionSize": 1000,
+      "maxPortfolioAllocation": 0.05,
+      "maxDailyLoss": 50,
+      "maxDrawdown": 100,
+      "maxLeverage": 1,
+      "stopLossDefault": 0.02,
+      "takeProfitDefault": 0.05
+    },
+
+    "strategies": {
+      "scalper": {
+        "enabled": true,
+        "allocation": 20,
+        "timeframe": "1m",
+        "minProfit": 0.003,
+        "maxTrades": 100
+      },
+      "grid": {
+        "enabled": true,
+        "allocation": 20,
+        "gridLevels": 10,
+        "gridSpacing": 0.01
+      },
+      "swing": {
+        "enabled": true,
+        "allocation": 20,
+        "timeframe": "4h",
+        "holdPeriod": "1-7d",
+        "targetProfit": 0.05
+      },
+      "dca": {
+        "enabled": true,
+        "allocation": 20,
+        "interval": "1d",
+        "buyOnDip": true,
+        "dipMultiplier": 2
+      },
+      "arbitrage": {
+        "enabled": true,
+        "allocation": 10,
+        "minSpread": 0.002,
+        "exchanges": ["binance", "coinbase"]
+      },
+      "aiPredictor": {
+        "enabled": true,
+        "allocation": 10,
+        "model": "lstm",
+        "confidenceThreshold": 0.7
+      }
+    }
+  },
+
+  "analytics": {
+    "enabled": true,
+    "realtimeUpdates": true,
+    "historyRetention": 90,
+    "aggregationInterval": 300,
+    "exportFormats": ["json", "csv", "html"]
+  },
+
+  "notifications": {
+    "enabled": true,
+    "channels": {
+      "email": {
+        "enabled": false,
+        "smtp": "",
+        "from": "",
+        "to": []
+      },
+      "sms": {
+        "enabled": false,
+        "provider": "twilio",
+        "apiKey": "",
+        "phoneNumber": ""
+      },
+      "push": {
+        "enabled": false,
+        "provider": "firebase",
+        "apiKey": ""
+      },
+      "slack": {
+        "enabled": false,
+        "webhookUrl": ""
+      },
+      "telegram": {
+        "enabled": false,
+        "botToken": "",
+        "chatId": ""
+      }
+    },
+    "alerts": {
+      "tradeExecution": true,
+      "largeTrade": true,
+      "profitMilestone": true,
+      "riskWarning": true,
+      "systemError": true
+    }
+  },
+
+  "backup": {
+    "enabled": true,
+    "autoBackup": true,
+    "interval": 3600,
+    "retentionDays": 30,
+    "destinations": {
+      "local": {
+        "enabled": true,
+        "path": "./Backups"
+      },
+      "s3": {
+        "enabled": false,
+        "bucket": "",
+        "region": "",
+        "accessKey": "",
+        "secretKey": ""
+      },
+      "googleDrive": {
+        "enabled": false,
+        "credentials": "",
+        "folderId": ""
+      }
+    },
+    "encryption": {
+      "enabled": true,
+      "algorithm": "AES-256",
+      "keyPath": "./backup.key"
+    }
+  },
+
+  "enterprise": {
+    "enabled": false,
+    "multiTenant": false,
+    "whiteLabel": false,
+    "rbac": true,
+    "audit": true,
+    "compliance": {
+      "soc2": false,
+      "gdpr": true,
+      "sox": false,
+      "hipaa": false
+    }
+  },
+
+  "features": {
+    "autoTrading": false,
+    "aiInsights": true,
+    "backtesting": true,
+    "paperTrading": true,
+    "copyTrading": false,
+    "signalService": false,
+    "marketplace": false,
+    "mobileApp": false
+  },
+
+  "performance": {
+    "cacheEnabled": true,
+    "cacheTTL": 300,
+    "maxConcurrentTrades": 10,
+    "maxConcurrentRequests": 50,
+    "requestTimeout": 30000,
+    "retryAttempts": 3,
+    "retryDelay": 1000
+  },
+
+  "development": {
+    "debugMode": false,
+    "verboseLogging": false,
+    "mockData": true,
+    "apiMocking": false,
+    "testMode": false
+  }
+}
