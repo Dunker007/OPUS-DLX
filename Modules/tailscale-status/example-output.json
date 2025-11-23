@@ -1,0 +1,104 @@
+{
+  "Timestamp": "2024-11-23T12:34:56.7890123Z",
+  "Module": "tailscale-status",
+  "Version": "1.0.0",
+  "TailscaleService": {
+    "Installed": true,
+    "Running": true,
+    "Status": "Running"
+  },
+  "Network": {
+    "Connected": true,
+    "SelfNode": {
+      "Hostname": "luxrig",
+      "IPAddress": "100.64.1.1",
+      "OS": "windows",
+      "Online": true
+    }
+  },
+  "Devices": [
+    {
+      "Name": "LuxRig",
+      "Hostname": "luxrig",
+      "Status": "Online",
+      "Online": true,
+      "IPAddress": "100.64.1.1",
+      "OS": "windows",
+      "TailscaleVersion": "1.54.0",
+      "LastSeen": "2024-11-23T12:34:50.1234567Z",
+      "Latency": {
+        "Value": 1.2,
+        "Unit": "ms"
+      },
+      "ExitNode": false
+    },
+    {
+      "Name": "Work PC",
+      "Hostname": "workpc",
+      "Status": "Online",
+      "Online": true,
+      "IPAddress": "100.64.1.2",
+      "OS": "windows",
+      "TailscaleVersion": "1.54.0",
+      "LastSeen": "2024-11-23T12:34:48.9876543Z",
+      "Latency": {
+        "Value": 15.8,
+        "Unit": "ms"
+      },
+      "ExitNode": false
+    },
+    {
+      "Name": "Laptop",
+      "Hostname": "laptop",
+      "Status": "Online",
+      "Online": true,
+      "IPAddress": "100.64.1.3",
+      "OS": "windows",
+      "TailscaleVersion": "1.52.1",
+      "LastSeen": "2024-11-23T12:34:52.4567890Z",
+      "Latency": {
+        "Value": 8.4,
+        "Unit": "ms"
+      },
+      "ExitNode": false
+    },
+    {
+      "Name": "Chromebook",
+      "Hostname": "chromebook",
+      "Status": "Online",
+      "Online": true,
+      "IPAddress": "100.64.1.4",
+      "OS": "linux",
+      "TailscaleVersion": "1.54.0",
+      "LastSeen": "2024-11-23T12:34:45.3216549Z",
+      "Latency": {
+        "Value": 22.1,
+        "Unit": "ms"
+      },
+      "ExitNode": false
+    },
+    {
+      "Name": "Phone",
+      "Hostname": "phone",
+      "Status": "Offline",
+      "Online": false,
+      "IPAddress": null,
+      "OS": null,
+      "TailscaleVersion": null,
+      "LastSeen": null,
+      "Latency": null,
+      "ExitNode": false
+    }
+  ],
+  "Summary": {
+    "Total": 5,
+    "Online": 4,
+    "Offline": 1,
+    "AverageLatency": {
+      "Value": 11.9,
+      "Unit": "ms"
+    }
+  },
+  "Status": "Success",
+  "Error": null
+}

@@ -1,0 +1,46 @@
+{
+  "description": "Tailscale device configuration for OPUS-DLX monitoring",
+  "lastUpdated": "2024-11-23T00:00:00Z",
+  "devices": [
+    {
+      "name": "LuxRig",
+      "hostname": "luxrig",
+      "description": "Main Windows 11 server - AI orchestration hub",
+      "critical": true,
+      "expectedOS": "windows"
+    },
+    {
+      "name": "Work PC",
+      "hostname": "workpc",
+      "description": "Work desktop - Development and testing",
+      "critical": false,
+      "expectedOS": "windows"
+    },
+    {
+      "name": "Laptop",
+      "hostname": "laptop",
+      "description": "Mobile workstation - Remote access",
+      "critical": false,
+      "expectedOS": "windows"
+    },
+    {
+      "name": "Chromebook",
+      "hostname": "chromebook",
+      "description": "Lightweight device - Monitoring and admin",
+      "critical": false,
+      "expectedOS": "linux"
+    },
+    {
+      "name": "Phone",
+      "hostname": "phone",
+      "description": "Mobile device - Alerts and notifications",
+      "critical": false,
+      "expectedOS": "android"
+    }
+  ],
+  "notes": [
+    "Edit this file to customize monitored devices",
+    "The 'critical' flag can be used for alert prioritization",
+    "Hostnames should match your Tailscale device names"
+  ]
+}
