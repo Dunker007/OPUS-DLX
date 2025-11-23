@@ -1,0 +1,42 @@
+{
+  "Timestamp": "2024-11-23T12:34:56.7890123Z",
+  "Module": "lm-studio-health",
+  "Version": "1.0.0",
+  "ServiceRunning": true,
+  "Process": {
+    "Running": true,
+    "ProcessCount": 1,
+    "Processes": [
+      {
+        "Name": "lmstudio",
+        "Id": 12345,
+        "StartTime": "2024-11-23T10:00:00.0000000Z",
+        "WorkingSet": 2048.5
+      }
+    ]
+  },
+  "APIEndpoint": "http://localhost:1234",
+  "APIResponsive": true,
+  "APITest": {
+    "Responsive": true,
+    "ResponseTimeMs": 52.1,
+    "StatusCode": 200,
+    "Endpoint": "http://localhost:1234/v1/models"
+  },
+  "ResponseTimeMs": 52.1,
+  "ModelsLoaded": [
+    "llama-3-8b-instruct",
+    "mistral-7b-instruct"
+  ],
+  "ModelCount": 2,
+  "PrimaryModel": "qwen2.5-vl-7b-instruct",
+  "PrimaryModelAvailable": false,
+  "PrimaryModelReady": false,
+  "Status": "degraded",
+  "LastCheck": "2024-11-23T12:34:56.7890123Z",
+  "Error": null,
+  "Warnings": [
+    "Primary model 'qwen2.5-vl-7b-instruct' is not loaded",
+    "Available models: llama-3-8b-instruct, mistral-7b-instruct"
+  ]
+}

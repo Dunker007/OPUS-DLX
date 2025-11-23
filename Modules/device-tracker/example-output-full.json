@@ -1,0 +1,149 @@
+{
+  "Timestamp": "2024-11-23T12:34:56.7890123Z",
+  "Module": "device-tracker",
+  "Version": "1.0.0",
+  "ConfigFile": "C:\\LuxRig\\Modules\\device-tracker\\devices.json",
+  "Devices": [
+    {
+      "Name": "LuxRig",
+      "Role": "build",
+      "Hostname": "luxrig",
+      "TailscaleIP": "100.64.1.1",
+      "ExpectedServices": ["LM-Studio", "Git", "Antigravity", "RDP"],
+      "Reachable": true,
+      "OnTailscale": true,
+      "IPAddress": "100.64.1.1",
+      "LatencyMs": 1.2,
+      "Services": [
+        {
+          "Name": "LM-Studio",
+          "Available": true,
+          "Port": 1234
+        },
+        {
+          "Name": "Git",
+          "Available": true,
+          "Port": 9418
+        },
+        {
+          "Name": "Antigravity",
+          "Available": true,
+          "Port": 8080
+        },
+        {
+          "Name": "RDP",
+          "Available": true,
+          "Port": 3389
+        }
+      ],
+      "LastSeen": "2024-11-23T12:34:56.7890123Z",
+      "Status": "online"
+    },
+    {
+      "Name": "WorkPC",
+      "Role": "plan",
+      "Hostname": "workpc",
+      "TailscaleIP": "100.64.1.2",
+      "ExpectedServices": ["Copilot-Agent", "Git", "RDP"],
+      "Reachable": true,
+      "OnTailscale": true,
+      "IPAddress": "100.64.1.2",
+      "LatencyMs": 15.8,
+      "Services": [
+        {
+          "Name": "Copilot-Agent",
+          "Available": null,
+          "Port": null
+        },
+        {
+          "Name": "Git",
+          "Available": true,
+          "Port": 9418
+        },
+        {
+          "Name": "RDP",
+          "Available": true,
+          "Port": 3389
+        }
+      ],
+      "LastSeen": "2024-11-23T12:34:56.7890123Z",
+      "Status": "online"
+    },
+    {
+      "Name": "Laptop",
+      "Role": "portable",
+      "Hostname": "laptop",
+      "TailscaleIP": "100.64.1.3",
+      "ExpectedServices": ["Git", "SSH", "RDP"],
+      "Reachable": true,
+      "OnTailscale": true,
+      "IPAddress": "100.64.1.3",
+      "LatencyMs": 8.4,
+      "Services": [
+        {
+          "Name": "Git",
+          "Available": true,
+          "Port": 9418
+        },
+        {
+          "Name": "SSH",
+          "Available": true,
+          "Port": 22
+        },
+        {
+          "Name": "RDP",
+          "Available": true,
+          "Port": 3389
+        }
+      ],
+      "LastSeen": "2024-11-23T12:34:56.7890123Z",
+      "Status": "online"
+    },
+    {
+      "Name": "Chromebook",
+      "Role": "portable",
+      "Hostname": "chromebook",
+      "TailscaleIP": "100.64.1.4",
+      "ExpectedServices": ["SSH"],
+      "Reachable": true,
+      "OnTailscale": true,
+      "IPAddress": "100.64.1.4",
+      "LatencyMs": 22.1,
+      "Services": [
+        {
+          "Name": "SSH",
+          "Available": true,
+          "Port": 22
+        }
+      ],
+      "LastSeen": "2024-11-23T12:34:56.7890123Z",
+      "Status": "online"
+    },
+    {
+      "Name": "Phone",
+      "Role": "portable",
+      "Hostname": "phone",
+      "TailscaleIP": "100.64.1.5",
+      "ExpectedServices": [],
+      "Reachable": false,
+      "OnTailscale": null,
+      "IPAddress": null,
+      "LatencyMs": null,
+      "Services": [],
+      "LastSeen": null,
+      "Status": "offline"
+    }
+  ],
+  "Summary": {
+    "Total": 5,
+    "Online": 4,
+    "Offline": 1,
+    "Degraded": 0
+  },
+  "Network": {
+    "TailscaleAvailable": true
+  },
+  "Status": "Success",
+  "Error": null,
+  "Warnings": []
+}

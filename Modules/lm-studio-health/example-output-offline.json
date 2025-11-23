@@ -1,0 +1,24 @@
+{
+  "Timestamp": "2024-11-23T12:34:56.7890123Z",
+  "Module": "lm-studio-health",
+  "Version": "1.0.0",
+  "ServiceRunning": false,
+  "Process": {
+    "Running": false,
+    "ProcessCount": 0,
+    "Processes": []
+  },
+  "APIEndpoint": "http://localhost:1234",
+  "APIResponsive": false,
+  "APITest": null,
+  "ResponseTimeMs": null,
+  "ModelsLoaded": [],
+  "ModelCount": 0,
+  "PrimaryModel": "qwen2.5-vl-7b-instruct",
+  "PrimaryModelAvailable": false,
+  "PrimaryModelReady": false,
+  "Status": "offline",
+  "LastCheck": "2024-11-23T12:34:56.7890123Z",
+  "Error": "LM Studio process is not running",
+  "Warnings": []
+}

@@ -1,0 +1,103 @@
+{
+  "Timestamp": "2024-11-23T08:30:00.0000000Z",
+  "Module": "device-tracker",
+  "Version": "1.0.0",
+  "ConfigFile": "C:\\LuxRig\\Modules\\device-tracker\\devices.json",
+  "Devices": [
+    {
+      "Name": "LuxRig",
+      "Role": "build",
+      "Hostname": "luxrig",
+      "TailscaleIP": "100.64.1.1",
+      "Reachable": true,
+      "OnTailscale": true,
+      "IPAddress": "100.64.1.1",
+      "LatencyMs": 1.5,
+      "Services": [
+        {
+          "Name": "LM-Studio",
+          "Available": true,
+          "Port": 1234
+        },
+        {
+          "Name": "Git",
+          "Available": true,
+          "Port": 9418
+        }
+      ],
+      "LastSeen": "2024-11-23T08:30:00.0000000Z",
+      "Status": "online"
+    },
+    {
+      "Name": "WorkPC",
+      "Role": "plan",
+      "Hostname": "workpc",
+      "TailscaleIP": "100.64.1.2",
+      "Reachable": false,
+      "OnTailscale": null,
+      "IPAddress": null,
+      "LatencyMs": null,
+      "Services": [
+        {
+          "Name": "Copilot-Agent",
+          "Available": false
+        }
+      ],
+      "LastSeen": null,
+      "Status": "offline"
+    },
+    {
+      "Name": "Laptop",
+      "Role": "portable",
+      "Hostname": "laptop",
+      "TailscaleIP": "100.64.1.3",
+      "Reachable": false,
+      "OnTailscale": null,
+      "IPAddress": null,
+      "LatencyMs": null,
+      "Services": [],
+      "LastSeen": null,
+      "Status": "offline"
+    },
+    {
+      "Name": "Chromebook",
+      "Role": "portable",
+      "Hostname": "chromebook",
+      "TailscaleIP": "100.64.1.4",
+      "Reachable": false,
+      "OnTailscale": null,
+      "IPAddress": null,
+      "LatencyMs": null,
+      "Services": [],
+      "LastSeen": null,
+      "Status": "offline"
+    },
+    {
+      "Name": "Phone",
+      "Role": "portable",
+      "Hostname": "phone",
+      "TailscaleIP": "100.64.1.5",
+      "Reachable": false,
+      "OnTailscale": null,
+      "IPAddress": null,
+      "LatencyMs": null,
+      "Services": [],
+      "LastSeen": null,
+      "Status": "offline"
+    }
+  ],
+  "Summary": {
+    "Total": 5,
+    "Online": 1,
+    "Offline": 4,
+    "Degraded": 0
+  },
+  "Network": {
+    "TailscaleAvailable": true
+  },
+  "Status": "Success",
+  "Error": null,
+  "Warnings": [
+    "Critical device offline: WorkPC"
+  ]
+}

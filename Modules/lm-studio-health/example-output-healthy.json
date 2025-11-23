@@ -1,0 +1,38 @@
+{
+  "Timestamp": "2024-11-23T12:34:56.7890123Z",
+  "Module": "lm-studio-health",
+  "Version": "1.0.0",
+  "ServiceRunning": true,
+  "Process": {
+    "Running": true,
+    "ProcessCount": 1,
+    "Processes": [
+      {
+        "Name": "lmstudio",
+        "Id": 12345,
+        "StartTime": "2024-11-23T10:00:00.0000000Z",
+        "WorkingSet": 2048.5
+      }
+    ]
+  },
+  "APIEndpoint": "http://localhost:1234",
+  "APIResponsive": true,
+  "APITest": {
+    "Responsive": true,
+    "ResponseTimeMs": 45.23,
+    "StatusCode": 200,
+    "Endpoint": "http://localhost:1234/v1/models"
+  },
+  "ResponseTimeMs": 45.23,
+  "ModelsLoaded": [
+    "qwen2.5-vl-7b-instruct"
+  ],
+  "ModelCount": 1,
+  "PrimaryModel": "qwen2.5-vl-7b-instruct",
+  "PrimaryModelAvailable": true,
+  "PrimaryModelReady": true,
+  "Status": "healthy",
+  "LastCheck": "2024-11-23T12:34:56.7890123Z",
+  "Error": null,
+  "Warnings": []
+}

@@ -1,0 +1,117 @@
+{
+  "description": "Device configuration for OPUS-DLX distributed network tracking",
+  "lastUpdated": "2024-11-23T00:00:00Z",
+  "devices": [
+    {
+      "name": "LuxRig",
+      "hostname": "luxrig",
+      "role": "build",
+      "tailscaleIP": "100.64.1.1",
+      "description": "Main Windows 11 server - AI orchestration hub",
+      "critical": true,
+      "services": [
+        "LM-Studio",
+        "Git",
+        "Antigravity",
+        "RDP"
+      ],
+      "capabilities": [
+        "AI inference (local)",
+        "Code compilation",
+        "Docker containers",
+        "Task orchestration"
+      ]
+    },
+    {
+      "name": "WorkPC",
+      "hostname": "workpc",
+      "role": "plan",
+      "tailscaleIP": "100.64.1.2",
+      "description": "Work desktop - Planning and strategy",
+      "critical": false,
+      "services": [
+        "Copilot-Agent",
+        "Git",
+        "RDP"
+      ],
+      "capabilities": [
+        "AI planning (cloud)",
+        "Code review",
+        "Documentation"
+      ]
+    },
+    {
+      "name": "Laptop",
+      "hostname": "laptop",
+      "role": "portable",
+      "tailscaleIP": "100.64.1.3",
+      "description": "Mobile workstation - Remote access and monitoring",
+      "critical": false,
+      "services": [
+        "Git",
+        "SSH",
+        "RDP"
+      ],
+      "capabilities": [
+        "Remote management",
+        "Monitoring",
+        "Emergency access"
+      ]
+    },
+    {
+      "name": "Chromebook",
+      "hostname": "chromebook",
+      "role": "portable",
+      "tailscaleIP": "100.64.1.4",
+      "description": "Lightweight device - Admin and monitoring",
+      "critical": false,
+      "services": [
+        "SSH"
+      ],
+      "capabilities": [
+        "Web dashboard access",
+        "SSH management",
+        "Monitoring only"
+      ]
+    },
+    {
+      "name": "Phone",
+      "hostname": "phone",
+      "role": "portable",
+      "tailscaleIP": "100.64.1.5",
+      "description": "Mobile device - Alerts and notifications",
+      "critical": false,
+      "services": [],
+      "capabilities": [
+        "Push notifications",
+        "Emergency alerts",
+        "Status checks"
+      ]
+    }
+  ],
+  "roles": {
+    "build": {
+      "description": "High-performance machines for AI inference and code compilation",
+      "expectedServices": ["LM-Studio", "Git", "Docker"]
+    },
+    "plan": {
+      "description": "Machines for strategic planning and code review",
+      "expectedServices": ["Copilot-Agent", "Git"]
+    },
+    "portable": {
+      "description": "Mobile devices for remote access and monitoring",
+      "expectedServices": ["SSH"]
+    }
+  },
+  "networkInfo": {
+    "tailscaleNetwork": "100.64.0.0/10",
+    "primaryDNS": "luxrig",
+    "backupDNS": "workpc"
+  },
+  "notes": [
+    "Edit this file to customize your device list and roles",
+    "The 'critical' flag indicates devices required for core operations",
+    "Services are checked for availability when device is online",
+    "Tailscale IPs should match your actual Tailscale network configuration"
+  ]
+}
