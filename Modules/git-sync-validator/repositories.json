@@ -1,0 +1,64 @@
+{
+  "description": "Repository configuration for OPUS-DLX Git sync monitoring",
+  "lastUpdated": "2024-11-23T00:00:00Z",
+  "repositories": [
+    {
+      "name": "Fresh-Start",
+      "path": "C:\\Repos GIT\\Fresh-Start",
+      "description": "Main development repository",
+      "critical": true,
+      "expectedBranch": "main",
+      "remoteURL": "https://github.com/Dunker007/Fresh-Start"
+    },
+    {
+      "name": "OPUS-DLX",
+      "path": "C:\\LuxRig",
+      "description": "AI orchestration infrastructure",
+      "critical": true,
+      "expectedBranch": "main",
+      "remoteURL": "https://github.com/Dunker007/OPUS-DLX"
+    },
+    {
+      "name": "Project-Example",
+      "path": "C:\\Projects\\MyProject",
+      "description": "Example project - customize as needed",
+      "critical": false,
+      "expectedBranch": "main",
+      "remoteURL": "https://github.com/username/project"
+    }
+  ],
+  "devices": [
+    {
+      "name": "LuxRig",
+      "hostname": "luxrig",
+      "description": "Main server - must be synced",
+      "checkInterval": 3600
+    },
+    {
+      "name": "Work PC",
+      "hostname": "workpc",
+      "description": "Development machine",
+      "checkInterval": 1800
+    },
+    {
+      "name": "Laptop",
+      "hostname": "laptop",
+      "description": "Mobile workstation",
+      "checkInterval": 3600
+    }
+  ],
+  "syncRules": {
+    "warnOnDirty": true,
+    "warnOnDivergence": true,
+    "allowAhead": true,
+    "blockOnBehind": false,
+    "autoFetch": true,
+    "fetchInterval": 300
+  },
+  "notes": [
+    "Edit this file to add/remove repositories to monitor",
+    "The 'critical' flag indicates repositories that must be synced",
+    "checkInterval is in seconds (3600 = 1 hour, 1800 = 30 minutes)",
+    "syncRules define automated behavior and alerting"
+  ]
+}

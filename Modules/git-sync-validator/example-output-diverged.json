@@ -1,0 +1,56 @@
+{
+  "Timestamp": "2024-11-23T12:34:56.7890123Z",
+  "Module": "git-sync-validator",
+  "Version": "1.0.0",
+  "Repository": "Fresh-Start",
+  "LocalPath": "C:\\Repos GIT\\Fresh-Start",
+  "Git": {
+    "Installed": true,
+    "Version": "2.42.0.windows.1",
+    "Path": "C:\\Program Files\\Git\\cmd\\git.exe"
+  },
+  "Branch": "main",
+  "Remote": {
+    "HasRemote": true,
+    "URL": "https://github.com/Dunker007/Fresh-Start",
+    "Name": "origin"
+  },
+  "Commits": {
+    "LocalHash": "def789abc123456789012345678901234567890ab",
+    "LocalShortHash": "def789a",
+    "RemoteHash": "fed456cba987654321098765432109876543210f",
+    "RemoteShortHash": "fed456c",
+    "HashesMatch": false
+  },
+  "WorkingTree": {
+    "IsDirty": false,
+    "TotalChanges": 0,
+    "Staged": 0,
+    "Unstaged": 0,
+    "Untracked": 0,
+    "Details": {
+      "Staged": [],
+      "Unstaged": [],
+      "Untracked": []
+    }
+  },
+  "Sync": {
+    "Status": "diverged",
+    "Ahead": 2,
+    "Behind": 3,
+    "NeedsPush": true,
+    "NeedsPull": true,
+    "IsDirty": false,
+    "UncommittedChanges": 0,
+    "HasTracking": true
+  },
+  "LastCommit": {
+    "Date": "2024-11-23T10:15:00Z",
+    "Message": "Fix bug in data processing",
+    "Author": "John Doe"
+  },
+  "LastSync": "2024-11-23T10:15:00Z",
+  "Status": "Success",
+  "Error": null,
+  "Warnings": []
+}

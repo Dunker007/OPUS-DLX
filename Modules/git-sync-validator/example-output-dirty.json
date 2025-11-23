@@ -1,0 +1,76 @@
+{
+  "Timestamp": "2024-11-23T12:34:56.7890123Z",
+  "Module": "git-sync-validator",
+  "Version": "1.0.0",
+  "Repository": "Fresh-Start",
+  "LocalPath": "C:\\Repos GIT\\Fresh-Start",
+  "Git": {
+    "Installed": true,
+    "Version": "2.42.0.windows.1",
+    "Path": "C:\\Program Files\\Git\\cmd\\git.exe"
+  },
+  "Branch": "main",
+  "Remote": {
+    "HasRemote": true,
+    "URL": "https://github.com/Dunker007/Fresh-Start",
+    "Name": "origin"
+  },
+  "Commits": {
+    "LocalHash": "abc123def456789012345678901234567890abcd",
+    "LocalShortHash": "abc123d",
+    "RemoteHash": "abc123def456789012345678901234567890abcd",
+    "RemoteShortHash": "abc123d",
+    "HashesMatch": true
+  },
+  "WorkingTree": {
+    "IsDirty": true,
+    "TotalChanges": 5,
+    "Staged": 2,
+    "Unstaged": 2,
+    "Untracked": 1,
+    "Details": {
+      "Staged": [
+        {
+          "Status": "M",
+          "File": "src/main.ps1"
+        },
+        {
+          "Status": "A",
+          "File": "src/helpers/utils.ps1"
+        }
+      ],
+      "Unstaged": [
+        {
+          "Status": "M",
+          "File": "README.md"
+        },
+        {
+          "Status": "M",
+          "File": "config/settings.json"
+        }
+      ],
+      "Untracked": [
+        "temp.txt"
+      ]
+    }
+  },
+  "Sync": {
+    "Status": "dirty",
+    "Ahead": 0,
+    "Behind": 0,
+    "NeedsPush": false,
+    "NeedsPull": false,
+    "IsDirty": true,
+    "UncommittedChanges": 5,
+    "HasTracking": true
+  },
+  "LastCommit": {
+    "Date": "2024-11-22T19:30:00Z",
+    "Message": "Add new feature for user authentication",
+    "Author": "John Doe"
+  },
+  "LastSync": "2024-11-22T19:30:00Z",
+  "Status": "Success",
+  "Error": null,
+  "Warnings": []
+}
